@@ -14,6 +14,16 @@ class BookController {
         return Book.getById(id)
     }
 
+    @QueryMapping
+    fun bookByName(@Argument name: String): Book? {
+        return Book.getByName(name)
+    }
+
+    @QueryMapping
+    fun bookByIdAndName(@Argument id: String, @Argument name: String): Book? {
+        return Book.getByIdAndName(id, name)
+    }
+
     @SchemaMapping
     fun author(book: Book): Author? {
         return Author.getById(book.getAuthorId())

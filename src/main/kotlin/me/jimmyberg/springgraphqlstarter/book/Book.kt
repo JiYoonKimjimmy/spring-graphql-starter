@@ -17,6 +17,18 @@ data class Book(
         fun getById(id: String): Book? {
             return books.find { it.id == id }
         }
+
+        fun getByName(name: String): Book? {
+            return books.find { compareBookName(it.name, name) }
+        }
+
+        fun getByIdAndName(id: String, name: String): Book? {
+            return books.find { it.id == id && compareBookName(it.name, name) }
+        }
+
+        private fun compareBookName(src: String, tgt: String): Boolean {
+            return src.lowercase() == tgt.lowercase()
+        }
     }
 
     fun getAuthorId(): String = this.authorId
