@@ -4,7 +4,6 @@ query bookDetails($id: ID) {
         name
         pageCount
         author {
-            id
             firstName
             lastName
         }
